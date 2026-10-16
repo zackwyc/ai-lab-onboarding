@@ -1,42 +1,30 @@
-# AI-Lab 新进成员准入考核交付
+# AI-Lab 准入任务实战通关记录
 
-作者：zackwyc
-系统：Windows
+> 申请人：王勇超
+> 日期：2026年10月16日
+> 环境：Windows / Trae CN / Python 3.13
 
-## Task 01 现代 AI 编程环境与 CLI 协同工具
+## 一、 阶段一：开发工具链与环境搭建
 
-### 三件套对应情况
-1. AI IDE / 工作台：Trae
-2. 终端 AI Agent：OpenCode
-3. 大模型 API：SiliconFlow / DeepSeek
+### 1. 现代 AI IDE 配置 (Task 01 - a)
+由于未成年实名限制，我无法注册外部大模型 API（如 SiliconFlow、DeepSeek）。因此我选择了**字节跳动推出的 Trae CN** 作为核心开发环境，它开箱即用，内置大模型，完美满足了开发需求。
+- **插件安装**：安装了 Python、Prettier 等，并安装了 Trae 推荐的 `BasedPyright`（类型检查）插件，实现了现代化的代码提示环境。
 
-### 环境配置步骤
-1. 安装 Node.js LTS，终端执行 `node -v` 确认成功
-2. 安装 OpenCode：`npm i -g opencode-ai`
-3. 到 SiliconFlow 或 DeepSeek 开放平台创建 API Key
-4. 设置环境变量（PowerShell）：
-   - `$env:OPENAI_API_KEY="sk-你的key"`
-   - `$env:OPENAI_BASE_URL="https://api.deepseek.com/v1"`
-5. 在项目目录运行 `opencode` 启动工具
+### 2. 终端/CLI AI 协同工具实战 (Task 01 - b)
+因为缺乏外部 API Key，我采用了 **Trae AI 助手 + 网页版 DeepSeek + 本地 PowerShell 终端** 的替代方案，通过真实的终端报错来测试 AI 的协同调试能力。
 
-### 交互过程
-在终端让 OpenCode 解释一段 Python 脚本、指出潜在 Bug 并给出优化建议，
-随后让它写了一个批量重命名文件的脚本，输出正常。
+**实战案例：打印 1-100 的质数 `print_primes.py`**
+1. 让 Trae 编写 Python 脚本，在终端运行时出现 `[Errno 2] No such file or directory` 路径报错，利用 Trae AI 对话窗口进行排查。
+2. 修复路径后，又遇到了 `SyntaxError: expected ':'` 语法错误，根据 AI 提示修复了第 1 行 `def is_prime(n):` 缺失的冒号。
+3. 安装 Python 扩展后，最终在 PowerShell 终端成功运行了 `print_primes.py`，输出了 1-100 之间的全部 25 个质数。
 
-### 截图
-- IDE / 工作台界面：屏幕截图 2026-10-14 115641.png
-- 终端成功交互：屏幕截图 2026-10-14 182722.png
+## 二、 交付物截图
 
-### 踩坑记录
-- 一开始鉴权失败，原因是 BASE_URL 写错，改成官方地址后正常。
-- API Key 不要提交到仓库，写在 .env 并加入 .gitignore。
+### 1. IDE/工作台工作界面截图
+![IDE配置截图](此处粘贴你之前带设置面板的截图)
 
-## Task 02 Markdown 笔记库
-使用 Obsidian（或 VSCode + Markdown All in One）。
-目录结构：
-- 环境配置/
-- 排错记录/
-- 代码实验/
-- 文献技术摘记/
-已练习语法：多级标题、列表、表格、代码块高亮、超链接、本地与网络图片引用、LaTeX 公式 `$E=mc^2$`。
-- 我说明一下,我这边还是未成年,API需要成年人才有权限用,我用我父母的后需要人脸,也跟着deepseek进行了很多流程来解决,来来回回有十几遍,最后实在没办法了所以只能提交这个了,希望理解一下
+### 2. 终端/CLI协同交互与成功运行截图
+![终端成功运行截图](此处粘贴你刚才这张完美的成功运行截图)
+
+## 三、 后续进阶计划
+虽然当前无法申请云端 API，但我已经掌握了利用 Trae 辅助开发、排查终端报错的核心能力。下一步我计划学习 **Ollama**，在本地部署开源小模型（如 Qwen2.5），以彻底打通本地 API 调用的环节。
